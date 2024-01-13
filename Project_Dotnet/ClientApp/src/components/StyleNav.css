@@ -1,0 +1,37 @@
+﻿.navbar .navbar-nav .nav-link {
+    position: relative;
+    display: inline-block;
+    font-size: 24px; 
+    color: #000;
+    text-decoration: none;
+    margin: 0 20px;
+    border-radius: 40px; 
+}
+
+    .navbar .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 100%;
+        height: 4px;
+        background: #C69774;
+        border-radius: 40px;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform .3s;
+    }
+
+    .navbar .navbar-nav .nav-link:hover::after {
+        transform-origin: left;
+        transform: scaleX(1);
+    }
+
+    
+    .navbar .navbar-nav .nav-link.active {
+         
+    }
+
+.nav-link {
+    cursor: pointer;
+}

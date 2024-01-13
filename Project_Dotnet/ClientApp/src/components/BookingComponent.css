@@ -1,0 +1,71 @@
+﻿/* Existing CSS variables and global styles */
+
+
+.booking{
+bottom: -6.5rem;
+}
+.btn-primary {
+    background-color: #C69774 !important; 
+}
+.btn-animeuwu:hover{
+    opacity: 0.8;
+}
+.btn-animeuwu {
+    transition: all 250ms ease-in-out;
+}
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: #C69774 !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(198, 151, 116, .25);
+}
+
+.form-select:focus {
+    border-color: #C69774 !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(198, 151, 116, .25);
+}
+
+.booking-container {
+    background-color: #fff; /* White background */
+    padding: 35px;
+    border-radius: 5px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    width: 100%;
+    animation-delay: 0.1s;
+    animation-name: fadeIn;
+}
+
+.booking-container form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.booking-container input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: "Heebo", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #666565;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+    .booking-container input:focus {
+        border: 1px solid #ccc;
+    }
+
+.booking-container button {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    font-family: "Heebo", sans-serif;
+}
