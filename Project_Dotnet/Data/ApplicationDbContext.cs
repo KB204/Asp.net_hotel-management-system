@@ -9,15 +9,16 @@ namespace Project_Dotnet.Data
         {
         }
 
-        public DbSet<Client> Clients { get; set; }
+        public DbSet<Client>? Clients { get; set; }
 
-        public DbSet<Room> Rooms { get; set; }
-        public DbSet<Reservation> Reservations { get; set; }
-        public DbSet<Categorie> Categories { get; set; }
-        public DbSet<Service> Services { get; set; }
-        public DbSet<Facilitie> Facilities { get; set; }
-        public DbSet<Card> Cards { get; set; }
-        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Room>? Rooms { get; set; }
+        public DbSet<Reservation>? Reservations { get; set; }
+        public DbSet<Categorie>? Categories { get; set; }
+        public DbSet<Service>? Services { get; set; }
+        public DbSet<Facilitie>? Facilities { get; set; }
+        public DbSet<Card>? Cards { get; set; }
+        public DbSet<Review>? Reviews { get; set; }
+        public DbSet<Utilisateur>? Utilisateurs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Define relationships
@@ -71,6 +72,7 @@ namespace Project_Dotnet.Data
               .HasForeignKey(r => r.ClientID)
               .OnDelete(DeleteBehavior.Restrict);
         }
+        public DbSet<Project_Dotnet.Models.RoomService>? RoomService { get; set; }
     }
 
 }

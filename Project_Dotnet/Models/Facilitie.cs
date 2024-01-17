@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project_Dotnet.Models
 {
@@ -8,14 +9,14 @@ namespace Project_Dotnet.Models
         public int FacilitieID { get; set; }
 
         [Required]
-        public string FacilitieName { get; set; }
+        public string FacilitieName { get; set; } = string.Empty;
 
         [Required]
-        public string FacilitieDescription { get; set; }
+        public string FacilitieDescription { get; set; } = string.Empty;
 
         [Required]
-        public decimal FacilitiePrice { get; set; }
+        public decimal FacilitiePrice { get; set; } = 0.0m;
 
-        public virtual ICollection<Reservation> Reservations { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
     }
 }

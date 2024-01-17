@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project_Dotnet.Models
 {
@@ -8,26 +9,23 @@ namespace Project_Dotnet.Models
         public int ClientID { get; set; }
 
         [Required]
-        public string Cin { get; set; }
+        public string Cin { get; set; } = string.Empty;
 
         [Required]
-        public string Nom { get; set; }
-
-        [Required]
-        public string Prenom { get; set; }
+        public string Nom { get; set; } = string.Empty;
 
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         [Required]
         [Phone]
-        public string Telephone { get; set; }
+        public string Telephone { get; set; } = string.Empty;
 
-        public string Addresse { get; set; }
+        public string Addresse { get; set; } = string.Empty;
 
-        public virtual ICollection<Reservation> Reservations { get; set; }
-        public virtual ICollection<Review> Reviews { get; set; }
-        public virtual Card Card { get; set; }
+        public virtual ICollection<Reservation>? Reservations { get; set; } = new List<Reservation>();
+        public virtual ICollection<Review>? Reviews { get; set; } = new List<Review>();
+        public virtual Card? Card { get; set; } 
     }
 }

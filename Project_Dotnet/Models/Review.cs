@@ -13,9 +13,9 @@ namespace Project_Dotnet.Models
         public int ClientID { get; set; }
 
         [Required]
-        public string Comment { get; set; }
+        public string Comment { get; set; } = string.Empty;
 
-        public int Stars { get; set; }
+        public int Stars { get; set; } = 0;
 
         public virtual Client Client { get; set; }
     }

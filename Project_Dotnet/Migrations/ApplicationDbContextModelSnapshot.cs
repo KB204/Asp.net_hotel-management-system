@@ -15,7 +15,7 @@ namespace Project_Dotnet.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.23");
 
             modelBuilder.Entity("Project_Dotnet.Models.Card", b =>
                 {
@@ -94,10 +94,6 @@ namespace Project_Dotnet.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Prenom")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Telephone")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -144,7 +140,7 @@ namespace Project_Dotnet.Migrations
                     b.Property<int>("ClientID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("FacilitieID")
+                    b.Property<int?>("FacilitieID")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("RoomID")
@@ -249,6 +245,33 @@ namespace Project_Dotnet.Migrations
                     b.ToTable("Services");
                 });
 
+            modelBuilder.Entity("Project_Dotnet.Models.Utilisateur", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Utilisateurs");
+                });
+
             modelBuilder.Entity("Project_Dotnet.Models.Card", b =>
                 {
                     b.HasOne("Project_Dotnet.Models.Client", "Client")
@@ -271,8 +294,7 @@ namespace Project_Dotnet.Migrations
                     b.HasOne("Project_Dotnet.Models.Facilitie", "Facilitie")
                         .WithMany("Reservations")
                         .HasForeignKey("FacilitieID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Project_Dotnet.Models.Room", "Room")
                         .WithMany("Reservations")
@@ -335,8 +357,7 @@ namespace Project_Dotnet.Migrations
 
             modelBuilder.Entity("Project_Dotnet.Models.Client", b =>
                 {
-                    b.Navigation("Card")
-                        .IsRequired();
+                    b.Navigation("Card");
 
                     b.Navigation("Reservations");
 

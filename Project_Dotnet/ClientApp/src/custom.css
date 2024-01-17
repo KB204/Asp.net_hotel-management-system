@@ -1,14 +1,10 @@
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+.container {
+    display: flex;
+    margin-top: 10px;
 }
 
-code {
-  color: #E01A76;
-}
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.link {
+    text-decoration: none;
+    color: inherit;
 }

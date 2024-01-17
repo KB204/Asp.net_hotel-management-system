@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project_Dotnet.Models
 {
@@ -9,15 +9,14 @@ namespace Project_Dotnet.Models
         public int ServiceID { get; set; }
 
         [Required]
-        public string ServiceName { get; set; }
+        public string ServiceName { get; set; } = string.Empty;
 
         [Required]
-        public string ServiceDescription { get; set; }
+        public string ServiceDescription { get; set; } = string.Empty;
 
         [Required]
+        public decimal Price { get; set; } = 0.0m;
 
-        public decimal Price { get; set; }
-
-        public ICollection<RoomService> RoomServices { get; set; }
+        public ICollection<RoomService> RoomServices { get; set; } = new List<RoomService>();
     }
 }
