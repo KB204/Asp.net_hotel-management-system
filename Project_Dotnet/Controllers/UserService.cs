@@ -39,6 +39,15 @@ namespace Project_Dotnet.Services
             if (user != null)
             {
                 _logger.LogInformation($"User authentication successful for email: {email}");
+                // Now, let's retrieve the user ID from the database using the email
+                var userId = await dbContext.Clients
+                    .Where(u => u.Email == email)
+                    .Select(u => u.ClientID)
+                    .FirstOrDefaultAsync();
+
+                // Attach the user ID to the user object
+                user.ClientID = userId;
+
                 return user;
             }
 
@@ -79,13 +88,14 @@ namespace Project_Dotnet.Services
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, client.Email),
+                new Claim(ClaimTypes.NameIdentifier, client.ClientID.ToString()),
             };
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Issuer"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(Convert.ToDouble(_configuration["Jwt:ExpireMinutes"])),
+                expires: DateTime.Now.AddHours(3),
                 signingCredentials: credentials
             );
 

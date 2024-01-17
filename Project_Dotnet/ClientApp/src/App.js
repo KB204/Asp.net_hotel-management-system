@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import HeroSection from './components/HeroSection';
-import Cards from './components/Cards';
+import Home from './components/pages/Home';
+import HomeWelcome from './components/pages/HomeWelcome';
 
-export default class App extends Component {
-    static displayName = App.name;
+function App() {
 
-    render() {
-        return (
-            <>
-                <NavBar />
-                <HeroSection />
-                <Cards />
-            </>
-        );
-    }
+    return (
+        <>
+            <NavBar />
+            <Routes> {/* Use Routes to define multiple routes */}
+                <Route path="/" element={<Home />} />
+                <Route path="/sign-up" element={<Home />} />
+                <Route path="/welcome" element={<HomeWelcome />} />
+            </Routes>
+        </>
+    );
 }
+
+export default App;

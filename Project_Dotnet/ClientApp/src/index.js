@@ -18,6 +18,7 @@ root.render(
         <App />
     </BrowserRouter>);
 
+
 serviceWorkerRegistration.unregister();
 
 reportWebVitals();

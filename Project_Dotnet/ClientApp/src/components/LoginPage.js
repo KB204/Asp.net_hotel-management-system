@@ -10,11 +10,13 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-
+import { useNavigate } from 'react-router-dom';
 
 const defaultTheme = createTheme();
 
 export default function SignIn(props) {
+    const navigate = useNavigate();
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -29,11 +31,24 @@ export default function SignIn(props) {
                 password: password,
             });
 
-            // Handle the response from the server
-            console.log('Login successful:');
-            props.onLoginSuccess();
+            // Extract the authentication token from the response
+            const authToken = response.data?.token;
 
-            // You may want to redirect the user or perform other actions here
+            // Handle the response from the server
+            console.log('Login successful:', authToken);
+
+            // Redirect to the welcome page
+            navigate('/welcome');
+
+            // Pass the authentication token to the parent component
+            if (props.onLoginSuccess) {
+                props.onLoginSuccess(authToken);
+            }
+
+            // Call the onLoginSuccess prop passed from the parent component
+            if (props.onLoginSuccess) {
+                props.onLoginSuccess();
+            }
 
         } catch (error) {
             // Handle any errors that occurred during the login request
@@ -70,7 +85,8 @@ export default function SignIn(props) {
                             backdropFilter: 'blur(8px)', // Add blur effect with a radius of 10px
                         }}
                     >
-                        <TextField sx={{ input: { color: 'white' } }}
+                        <TextField
+                            sx={{ input: { color: 'white' } }}
                             margin="dense"
                             variant="filled"
                             color="warning"
@@ -82,7 +98,8 @@ export default function SignIn(props) {
                             autoComplete="email"
                             autoFocus
                         />
-                        <TextField sx={{ input: { color: 'white' } }}
+                        <TextField
+                            sx={{ input: { color: 'white' } }}
                             margin="dense"
                             variant="filled"
                             color="warning"
@@ -109,7 +126,7 @@ export default function SignIn(props) {
                         </Button>
                         <Grid container>
                             <Grid item xs>
-                                
+                                {/* Add any additional links or text here */}
                             </Grid>
                         </Grid>
                     </Box>

@@ -10,7 +10,7 @@ namespace Project_Dotnet.Models
 
         [Required]
         [ForeignKey("Client")]
-        public int ClientID { get; set; }
+        public int? ClientID { get; set; }
 
         [Required]
         [ForeignKey("Room")]
@@ -29,8 +29,8 @@ namespace Project_Dotnet.Models
         public decimal TotalAmount { get; set; }
 
       
-        public virtual Client Client { get; set; }
-        public virtual Room Room { get; set; }
-        public virtual Facilitie Facilitie { get; set; }
+        public virtual Client? Client { get; set; }
+        public virtual Room? Room { get; set; }
+        public virtual Facilitie? Facilitie { get; set; }
     }
 }

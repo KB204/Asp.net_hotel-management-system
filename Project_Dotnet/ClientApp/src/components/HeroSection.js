@@ -5,7 +5,7 @@ import BookingComponent from './BookingComponent';
 import LoginPage from './LoginPage';
 import SignupPage from './SignupPage';
 
-function HeroSection() {
+function HeroSection(props) {
     const [showLogin, setShowLogin] = useState(false);
     const [showSignup, setShowSignup] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -19,10 +19,6 @@ function HeroSection() {
         setShowSignup((prevShowSignup) => !prevShowSignup);
         setShowLogin(false);
     };
-    const handleLoginSuccess = () => {
-        setIsLoggedIn(true);
-        setShowLogin(false);
-    };
 
     return (
         <div className='hero-container position-relative' id="homesection">
@@ -32,15 +28,6 @@ function HeroSection() {
             <p>What are you waiting for?</p>
 
             <div className='hero-btns'>
-                {isLoggedIn ? (
-                    <Button
-                        className='btns'
-                        buttonStyle='btn--outline'
-                        buttonSize='btn--large'
-                    >
-                        BOOK NOW
-                    </Button>
-                ) : (
                     <>
                         <Button
                             className='btns'
@@ -59,10 +46,10 @@ function HeroSection() {
                             SIGNUP
                         </Button>
                     </>
-                )}
+                
             </div>
 
-            {showLogin && <LoginPage onLoginSuccess={handleLoginSuccess} />}
+            {showLogin && <LoginPage />}
             {showSignup && <SignupPage />}
 
             <BookingComponent />

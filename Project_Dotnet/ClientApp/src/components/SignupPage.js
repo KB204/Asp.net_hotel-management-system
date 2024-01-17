@@ -30,7 +30,7 @@ export default function SignUp() {
         };
 
         try {
-            const response = await fetch('https://localhost:44420/api/auth/signup', {
+            const response = await fetch('https://localhost:7120/api/auth/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

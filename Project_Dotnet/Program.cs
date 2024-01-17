@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Project_Dotnet.Data;
 using Project_Dotnet.Services;
+using Project_Dotnet.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +36,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Add IUserService registration
 builder.Services.AddScoped<IUserService, UserService>();
+
+
 
 var app = builder.Build();
 

@@ -16,6 +16,6 @@ namespace Project_Dotnet.Models
         [Required]
         public decimal FacilitiePrice { get; set; }
 
-        public virtual ICollection<Reservation> Reservations { get; set; }
+        public virtual ICollection<Reservation>? Reservations { get; set; }
     }
 }

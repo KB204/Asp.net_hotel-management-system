@@ -71,6 +71,7 @@ namespace Project_Dotnet.Data
               .HasForeignKey(r => r.ClientID)
               .OnDelete(DeleteBehavior.Restrict);
         }
+        public DbSet<Project_Dotnet.Models.RoomService>? RoomService { get; set; }
     }
 
 }

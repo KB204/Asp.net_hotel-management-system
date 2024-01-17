@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Project_Dotnet.Models
 {
@@ -16,6 +17,7 @@ namespace Project_Dotnet.Models
         [Required]
         public string Capacity { get; set;}
 
-        public virtual ICollection<Room> Rooms { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Room>? Rooms { get; set; }
     }
 }
